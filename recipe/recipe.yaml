@@ -1,5 +1,5 @@
 context:
-  version: 0.3.0
+  version: "0.3.1"
 
 package:
   name: dockerclustermon
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/d/dockerclustermon/dockerclustermon-${{ version }}.tar.gz
-    sha256: 41b2b345996161ac2070b07bc2e1baa1ba2074b1c1d86c09802114bdb5533478
+    sha256: 9b93e83057b1cd0e9aa94e24f2eeefe0c04a0502762a7bc2668be89c892abbe4
 
 build:
   number: 0
@@ -15,26 +15,26 @@ build:
   noarch: python
   python:
     entry_points:
-    - dockerstatus = dockerclustermon:run_live_status
-    - ds = dockerclustermon:run_live_status
+      - dockerstatus = dockerclustermon:run_live_status
+      - ds = dockerclustermon:run_live_status
 
 requirements:
   host:
-  - python ${{ python_min }}.*
-  - hatchling >=1.21.0
-  - hatch-vcs >=0.3.0
-  - pip
+    - python ${{ python_min }}.*
+    - hatchling >=1.21.0
+    - hatch-vcs >=0.3.0
+    - pip
   run:
-  - python >=${{ python_min }}
-  - paramiko >=3.5.0
-  - rich >=13.9.4
-  - setproctitle >=1.3.7
-  - typer >=0.13.1
+    - python >=${{ python_min }}
+    - paramiko >=3.5.0
+    - rich >=13.9.4
+    - setproctitle >=1.3.7
+    - typer >=0.13.1
 
 tests:
   - python:
       imports:
-      - dockerclustermon
+        - dockerclustermon
       pip_check: true
       python_version: ${{ python_min }}.*
   - script:
